@@ -1,0 +1,123 @@
+.nav__list{
+	display: flex;
+	justify-content: space-evenly;
+	position:relative;
+
+	height: 6.1rem;
+	padding: 0 15%;	
+
+	box-sizing: border-box;
+	background-color: $bgNav;
+
+		
+	@include breakpoint($tablet-bp) {
+
+		padding: 0;	
+		display: none;
+		height: auto;
+		top: 6.1rem;
+		left: 0;
+		
+		width: 100vw;
+		border-top: 1px solid $black;
+
+		max-height: calc(100vh - 6.1rem);;
+		overflow-y: auto;
+		
+		&.show-navList{
+			display: block;
+		}
+	};
+
+	li{}
+}
+
+
+.nav__item{
+	text-align:  center;
+	padding: 2rem 0;
+	width: 10rem;
+	box-sizing: border-box;
+	letter-spacing: 0;
+	cursor: pointer;
+	
+	&>a{		
+		color: $white;
+		font-weight: 500;
+	}
+
+
+	&:before,
+	&:after{
+		letter-spacing: .5rem;
+	  	border: 1px solid rgba($white, 0);
+
+	  	bottom: 0;
+	  	content: " ";
+	  	display: block;
+
+	 	margin: 0 auto;
+		position: relative;
+	 	transition: all 280ms ease-in-out;
+	 	width: 0;
+
+	 	@include breakpoint($tablet-bp) {
+	  		display: none;
+	  	}
+	}
+
+	&:hover:after,
+	&:hover:before {
+  		backface-visibility: hidden;
+  		border-color: #fff;
+  		transition: width .4s ease-in-out;
+  		width: 100%;
+	}
+
+	&:hover{
+		transition: background-color  .3s ease-in-out;
+		background-color: darken($bgNav, 1%);
+		
+		box-shadow: 0 0  2rem rgba($bgNav, .4);
+
+		&>a{
+			transition: all 280ms ease-in-out;
+			letter-spacing: .2rem;
+			font-weight: 500;
+
+			@include breakpoint($tablet-bp) {
+	  			letter-spacing:0;
+	  			}
+			
+			}	
+
+		@include breakpoint($tablet-bp) {
+			box-sizing: border-box;
+			border-bottom:none;
+			width: 100vw;	
+		};	
+	}
+
+	@include MINwidthBreakpoint($tablet-bp){
+
+
+		&:hover{
+			.subnav,
+			.nested__subnav{
+			display: block;
+			transition: opacity .2s linear;
+			opacity: 1;
+			}
+		}
+	}	
+
+	@include breakpoint($tablet-bp) {
+		position:relative;
+		padding: 1rem 2rem;
+		width: 100vw;
+		text-align:  start;
+	};
+
+
+}
+

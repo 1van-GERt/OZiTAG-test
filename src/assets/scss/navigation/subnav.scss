@@ -1,0 +1,104 @@
+.subnav{
+	
+	display: none;
+	opacity: 0;
+	position:absolute;
+	
+	top: 6.1rem;
+	left: 15%;
+
+	box-sizing: border-box;
+	padding:2rem;
+	width: 70%;
+	
+	transition: background-color .2s linear;
+	background-color: inherit;
+
+	@include breakpoint($tablet-bp) {
+		position: relative;
+		top:0;
+		padding:0;
+		width: calc(100vw - 4rem);
+
+		&.show-subnav{
+			&{	
+				opacity: 1;
+				display: block;
+				left: 0;
+			}
+		}
+	}	
+
+	@include MINwidthBreakpoint($tablet-bp){
+		display: none;
+	}
+}
+
+.subnav__content{
+	display: flex;	
+	justify-content: space-around;
+
+	@include breakpoint($tablet-bp) {		
+			display: block;
+	}
+	
+}
+
+.subnav__link{
+	font-size: 1.6rem;
+	@include breakpoint($tablet-bp) {
+		font-size: 1.4rem;
+	}
+}
+
+.subnav__item{
+	position:relative;
+	width: 11rem;	
+	
+	color: $textNav;
+
+	cursor: pointer;
+	&:hover{
+		transition: color .2s linear, background-color  .2s linear;
+		background-color: inherit;
+
+		&>a{
+			color: $textNav;
+			font-weight: 500;
+			letter-spacing: .1rem;
+		}
+	}
+
+	@include breakpoint($tablet-bp) {
+		margin: 1rem 0;
+		width: 100%;
+		&{
+			letter-spacing: 0;
+		}
+	}
+}
+
+.nested__subnav{
+	display: none;
+
+	&.show-nesed__subnav{
+			display: block;
+	}
+}
+
+.nested__subnav__item{
+	padding-top:1rem;
+	@include breakpoint($tablet-bp) {
+		padding:0 2rem;	
+	}
+
+	&:hover>a{
+		text-decoration: none;
+		color: $textNav;
+		font-weight: 500;
+		letter-spacing: .1rem;
+		}
+	
+	
+}
+

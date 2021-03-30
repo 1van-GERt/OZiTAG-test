@@ -1,0 +1,48 @@
+@import "vars";
+@import "vendor/reset";
+@import "mixins";
+
+
+html {
+	font-size: 62.5%;
+};
+
+body {
+
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+
+    line-height: 1.5;
+    font-size: 1.4rem;
+    font-weight:400;
+    background-color: $white;
+    color: $black;
+
+    scrollbar-width: none;
+    @include breakpoint($tablet-bp) {
+        &.no-scroll{
+        	overflow: hidden;
+        }
+    }
+};
+
+
+a{
+	text-decoration: none;
+	&:hover,
+	&:focus{outline: none;
+	}
+
+};
+
+
+@import "blocks/page";
+@import "blocks/header";
+@import "blocks/head";
+@import "blocks/modal";
+
+@import "navigation/nav";
+@import "navigation/subnav";
+@import "navigation/burger";
+@import "navigation/nav__switch";
+
+

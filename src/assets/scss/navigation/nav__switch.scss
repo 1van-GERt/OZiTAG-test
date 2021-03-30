@@ -1,0 +1,65 @@
+.nav__switch,
+.subnav__switch {
+	display: none;
+	@include breakpoint($tablet-bp) {
+		display: block;
+		width: 3rem;
+		height: 2rem;
+
+		background: none;
+		border: none;
+
+		color:transparent;
+		font-size: 0;
+
+		position: absolute;
+		right: 2rem;
+		top: 2rem;
+
+		transform: translateY(-50%);
+
+		&:before,
+		&:after{
+			display: block;
+			width:.2rem; 
+			height: 100%;
+
+		 	position: absolute;
+		 	top: 0;
+
+			background-color: $white;
+	
+			content: "";
+			transition: transform .2s linear;
+		}
+
+		&:before{
+			left: .7rem;
+			transform: rotate(-45deg);
+		}
+
+		&:after{
+			right: .7rem;
+			transform: rotate(45deg);
+		}
+
+		&.btm-nav{
+			&:before{
+				left: .7rem;
+				transform: rotate(45deg);
+				
+			}
+
+			&:after{
+				right: .7rem;
+				transform: rotate(-45deg)
+				
+			}
+		}
+	}
+}
+
+.subnav__switch{
+	right: 5rem;
+	top: 1rem;
+}
